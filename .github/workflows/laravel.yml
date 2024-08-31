@@ -21,7 +21,8 @@ jobs:
 
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-
+    - name: Clear Composer Cache
+      run: composer clear-cache
     - name: Install Dependencies
       run: composer install --prefer-dist --no-scripts --no-progress --no-interaction
 
@@ -41,3 +42,4 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan test
+    
