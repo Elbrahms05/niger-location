@@ -1,0 +1,49 @@
+{
+    "name": "elbrahms/niger-location",
+    "description": "This package offers a simple way to get the regions, departments, communes and localities of the Niger Republic (NE:+227) that you might need for your application - for example, for drop-down menus.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elbrahms\\NigerLocation\\": "src/",
+            "Elbrahms\\NigerLocation\\Tests\\": "tests/",
+            "Elbrahms\\NigerLocation\\Database\\Factories": "src/database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Elbrahms\\NigerLocation\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ibrahim ABDOU",
+            "email": "ibrahimabdoulkarim@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit tests"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Elbrahms\\NigerLocation\\LocationServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "illuminate/support": "^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "3.8.*|4.*",
+        "phpunit/phpunit": "^8.0",
+        "illuminate/contracts": "^5.8.15|^6.0",
+        "illuminate/filesystem": "^5.8.15|^6.0",
+        "illuminate/support": "^5.8.15|^6.0",
+        "illuminate/database": "^5.8.15|^6.0",
+        "phpunit/php-code-coverage": "^7.0@dev"
+    }
+}

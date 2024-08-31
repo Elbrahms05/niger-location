@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         stopOnFailure="true">
+    <php>
+        <!-- Environment Variables -->
+        <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="BROADCAST_DRIVER" value="log"/>
+        <env name="FILESYSTEM_DRIVER" value="array"/>
+    </php>
+
+    <!-- Logging Settings -->
+    <logging>
+        <log type="junit" target="tests/logs/junit.xml"/>
+        <log type="coverage-html" target="tests/logs/coverage"/>
+        <log type="coverage-clover" target="tests/logs/clover.xml"/>
+        <log type="coverage-php" target="tests/logs/coverage.cov"/>
+    </logging>
+
+    <!-- Test Suites -->
+    <testsuites>
+        <testsuite name="Niger Location Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" stopOnFailure="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <coverage>
+    <report>
+      <clover outputFile="tests/logs/clover.xml"/>
+      <html outputDirectory="tests/logs/coverage"/>
+      <php outputFile="tests/logs/coverage.cov"/>
+    </report>
+  </coverage>
+  <php>
+    <!-- Environment Variables -->
+    <env name="APP_ENV" value="testing"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="SESSION_DRIVER" value="array"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="DB_CONNECTION" value="sqlite"/>
+    <env name="DB_DATABASE" value=":memory:"/>
+    <env name="MAIL_MAILER" value="array"/>
+    <env name="BROADCAST_DRIVER" value="log"/>
+    <env name="FILESYSTEM_DRIVER" value="array"/>
+  </php>
+  <!-- Logging Settings -->
+  <logging>
+    <junit outputFile="tests/logs/junit.xml"/>
+  </logging>
+  <!-- Test Suites -->
+  <testsuites>
+    <testsuite name="Niger Location Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <source/>
+</phpunit>
