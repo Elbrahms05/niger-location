@@ -22,12 +22,16 @@ jobs:
         php-version: '8.1'
         coverage: xdebug # Use xdebug for code coverage if needed
 
-   
+    - name: Clear Composer Cache
+      run: composer clear-cache
+      
     - name: Install Laravel
       run: |
         composer create-project --prefer-dist laravel/laravel laravel-app
         cd laravel-app
-
+    - name: Composer install
+      run: composer install
+      
     - name: Install Package
       run: |
         cd laravel-app
