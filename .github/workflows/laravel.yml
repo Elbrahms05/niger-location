@@ -40,7 +40,6 @@ jobs:
         cd laravel-app
         php -r "file_exists('.env') || copy('.env.example', '.env');"
 
-<<<<<<< HEAD
     - name: Composser dump
       run: composer dump-autoload
       
@@ -50,7 +49,6 @@ jobs:
     - name: Update Dependencies
       run: composer update --prefer-dist --no-scripts --no-progress --no-interaction --ignore-platform-reqs
       
-=======
     - name: Generate Application Key
       run: |
         cd laravel-app
@@ -61,20 +59,18 @@ jobs:
         cd laravel-app
         chmod -R 777 storage bootstrap/cache
 
->>>>>>> origin/master
     - name: Create Database
       run: |
         cd laravel-app
         mkdir -p database
         touch database/database.sqlite
 
-<<<<<<< HEAD
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit --coverage-text
-=======
+      
     - name: Publish Package Configuration
       run: |
         cd laravel-app
@@ -94,4 +90,3 @@ jobs:
       run: |
         cd laravel-app
         vendor/bin/phpunit --coverage-text
->>>>>>> origin/master
