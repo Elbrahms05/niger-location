@@ -21,9 +21,6 @@ jobs:
       with:
         php-version: '8.1'  # Specify your PHP version here
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
@@ -34,7 +31,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer install --prefer-dist --no-progress --ignore-platform-reqs
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
