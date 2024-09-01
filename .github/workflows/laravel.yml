@@ -16,7 +16,7 @@ jobs:
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: '8.1'
         coverage: xdebug # Use xdebug for code coverage if needed
 
     - name: Clear Composer Cache
@@ -28,7 +28,7 @@ jobs:
         cd laravel-app
       
     - name: Composer install
-      run: composer install --ignore-platform-reqs
+      run: composer install
       
     - name: Install Package
       run: |
