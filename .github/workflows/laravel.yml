@@ -22,9 +22,7 @@ jobs:
         php-version: '8.1'
         coverage: xdebug # Use xdebug for code coverage if needed
 
-    - name: Set up Composer
-      run: composer self-update
-
+   
     - name: Install Laravel
       run: |
         composer create-project --prefer-dist laravel/laravel laravel-app
