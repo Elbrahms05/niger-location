@@ -55,7 +55,7 @@ php artisan migrate
 Finally, run the Package seeders
 
 ```shell
-php artisan db:seed --class=Elbrahms\\NigerLocation\\Database\\Seeders\\LocationDatabaseSeeder
+php artisan db:seed --class=Elbrahms\NigerLocation\Database\Seeders\LocationDatabaseSeeder
 ```
 ![seeders](https://res.cloudinary.com/dtafjakmd/image/upload/v1725131284/Seeders_tvn3ht.png)
 ## Usage 🧨
