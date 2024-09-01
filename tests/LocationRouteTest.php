@@ -9,14 +9,10 @@ use Elbrahms\NigerLocation\Models\Departement;
 use Elbrahms\NigerLocation\Models\Commune;
 use Elbrahms\NigerLocation\Models\Localite;
 use Elbrahms\NigerLocation\Tests\TestCase;
-
+use Tests\CreatesApplication;
 class LocationRouteTest extends TestCase
 {
-<<<<<<< HEAD
     use RefreshDatabase,CreatesApplication;
-=======
-    use RefreshDatabase;
->>>>>>> origin/master
 
     public function setUp(): void
     {
