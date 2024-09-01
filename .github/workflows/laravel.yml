@@ -84,7 +84,7 @@ jobs:
     - name: Seed Database
       run: |
         cd laravel-app
-        php artisan db:seed --class=Elbrahms\\NigerLocation\\Database\\Seeders\\LocationDatabaseSeeder
+        php artisan db:seed --class=Elbrahms\NigerLocation\Database\Seeders\LocationDatabaseSeeder
 
     - name: Run Tests
       run: |
