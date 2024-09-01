@@ -24,13 +24,13 @@ jobs:
 
     - name: Composser dump
       run: composer dump-autoload
-
-    - name: Update Dependencies
-      run: composer update --prefer-dist --no-scripts --no-progress --no-interaction
-
+      
     - name: Install Dependencies
       run: composer install --prefer-dist --no-scripts --no-progress --no-interaction
 
+    - name: Update Dependencies
+      run: composer update --prefer-dist --no-scripts --no-progress --no-interaction
+      
     - name: Create Database
       run: |
         mkdir -p database
