@@ -20,7 +20,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'  # Specify your PHP version here
-
+    
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+      
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
