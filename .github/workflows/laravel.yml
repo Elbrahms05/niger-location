@@ -2,42 +2,76 @@ name: Laravel
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-  laravel-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
+        php-version: '8.1'
         coverage: xdebug # Use xdebug for code coverage if needed
 
+    - name: Set up Composer
+      run: composer self-update
+
+    - name: Install Laravel
+      run: |
+        composer create-project --prefer-dist laravel/laravel laravel-app
+        cd laravel-app
+
+    - name: Install Package
+      run: |
+        cd laravel-app
+        composer require elbrahms/niger-location:"dev-master"
+
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      run: |
+        cd laravel-app
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
 
-    - name: Composser dump
-      run: composer dump-autoload
-      
-    - name: Install Dependencies
-      run: composer install --prefer-dist --no-scripts --no-progress --no-interaction
+    - name: Generate Application Key
+      run: |
+        cd laravel-app
+        php artisan key:generate
 
-    - name: Update Dependencies
-      run: composer update --prefer-dist --no-scripts --no-progress --no-interaction
-      
+    - name: Directory Permissions
+      run: |
+        cd laravel-app
+        chmod -R 777 storage bootstrap/cache
+
     - name: Create Database
       run: |
+        cd laravel-app
         mkdir -p database
         touch database/database.sqlite
 
-    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit --coverage-text
+    - name: Publish Package Configuration
+      run: |
+        cd laravel-app
+        php artisan vendor:publish --tag=niger-location
+
+    - name: Run Migrations
+      run: |
+        cd laravel-app
+        php artisan migrate --force
+
+    - name: Seed Database
+      run: |
+        cd laravel-app
+        php artisan db:seed --class=Elbrahms\\NigerLocation\\Database\\Seeders\\LocationDatabaseSeeder
+
+    - name: Run Tests
+      run: |
+        cd laravel-app
+        vendor/bin/phpunit --coverage-text
