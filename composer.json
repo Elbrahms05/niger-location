@@ -1,6 +1,6 @@
 {
     "name": "elbrahms/niger-location",
-    "description": "This package offers a simple way to get the regions,  departments, communes and localities of the Niger Republic (NE:+227) that you might need for your application - for example, for drop-down menus.",
+    "description": "This package offers a simple way to get the regions, departments, communes and localities of the Niger Republic (NE:+227) that you might need for your application - for example, for drop-down menus.",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -38,7 +38,6 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.0",
-        "orchestra/testbench": "3.8.*|4.*",
         "phpunit/phpunit": "^8.0",
         "illuminate/contracts": "^5.8.15|^6.0",
         "illuminate/filesystem": "^5.8.15|^6.0",

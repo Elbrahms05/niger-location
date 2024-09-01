@@ -13,7 +13,7 @@ use Tests\CreatesApplication;
 
 class LocationRouteTest extends TestCase
 {
-    use RefreshDatabase, CreatesApplication;
+    use RefreshDatabase,CreatesApplication;
 
     public function setUp(): void
     {
