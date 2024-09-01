@@ -6,11 +6,11 @@ use Elbrahms\NigerLocation\LocationServiceProvider;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
-use Tests\CreatesApplication;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-abstract class TestCase extends BaseTestCase
+abstract class TestCase extends OrchestraTestCase
 {
-    use CreatesApplication;
+
 
     public function setUp(): void
     {
