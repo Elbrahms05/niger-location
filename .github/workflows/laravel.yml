@@ -22,6 +22,9 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
+    - name: Composser dump
+      run: composer dump-autoload
+
     - name: Update Dependencies
       run: composer update --prefer-dist --no-scripts --no-progress --no-interaction
 
