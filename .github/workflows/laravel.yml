@@ -28,12 +28,12 @@ jobs:
         cd laravel-app
       
     - name: Composer install
-      run: composer install
+      run: composer install --ignore-platform-reqs
       
     - name: Install Package
       run: |
         cd laravel-app
-        composer require elbrahms/niger-location:"dev-master"
+        composer require elbrahms/niger-location:"dev-master" --ignore-platform-reqs
 
     - name: Copy .env
       run: |
