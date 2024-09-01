@@ -7,7 +7,7 @@
         "psr-4": {
             "Elbrahms\\NigerLocation\\": "src/",
             "Elbrahms\\NigerLocation\\Tests\\": "tests/",
-            "Elbrahms\\NigerLocation\\Database\\Factories": "src/database/factories/"
+            "Elbrahms\\NigerLocation\\Database\\Factories\\": "src/database/factories/"
         }
     },
     "autoload-dev": {
